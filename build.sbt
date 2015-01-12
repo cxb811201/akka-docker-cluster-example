@@ -32,25 +32,29 @@ scalacOptions ++= Seq(
   ,"-language:postfixOps"
 )
 
-val akka = "2.3.7"
-
 /* dependencies */
-libraryDependencies ++= Seq (
-  "com.github.nscala-time" %% "nscala-time" % "1.2.0"
-  // -- testing --
-  , "org.scalatest" % "scalatest_2.10" % "2.1.0" % "test"
-  // -- Logging --
-  ,"ch.qos.logback" % "logback-classic" % "1.1.1"
-  // -- Akka --
-  ,"com.typesafe.akka" %% "akka-testkit" % akka % "test"
-  ,"com.typesafe.akka" %% "akka-actor" % akka
-  ,"com.typesafe.akka" %% "akka-slf4j" % akka
-  ,"com.typesafe.akka" %% "akka-cluster" % akka
-  // -- json --
-  ,"org.json4s" %% "json4s-jackson" % "3.2.10"
-  // -- config --
-  ,"com.typesafe" % "config" % "1.2.0"
-)
+libraryDependencies ++= {
+  val slf4j = "1.7.7"
+  val logback = "1.1.2"
+  val akka = "2.3.8"
+
+  Seq (
+    "com.github.nscala-time" %% "nscala-time" % "1.6.0"
+    // -- testing --
+    , "org.scalatest" %% "scalatest" % "2.2.3" % "test"
+    // -- Logging --
+    ,"org.slf4j" % "slf4j-api" % slf4j
+    ,"ch.qos.logback" % "logback-classic" % logback
+    // -- Akka --
+    ,"com.typesafe.akka" %% "akka-testkit" % akka % "test"
+    ,"com.typesafe.akka" %% "akka-actor" % akka
+    ,"com.typesafe.akka" %% "akka-slf4j" % akka
+    ,"com.typesafe.akka" %% "akka-cluster" % akka
+    // -- json --
+    ,"org.scala-lang" % "scalap" % "2.11.4"
+    ,"org.json4s" %% "json4s-jackson" % "3.2.11"
+  )
+}
 
 maintainer := "Michael Hamrah <m@hamrah.com>"
 
